@@ -32,13 +32,13 @@ import App from './App';
 function BasicTable(props) {
 
 
-  
+
 
 
   const [searchTerm, setSearchTerm] = useState("")
 
   return (
-      <><div className="main">
+    <><div className="main">
       <h1>React Search</h1>
       <div className="search" >
 
@@ -48,9 +48,9 @@ function BasicTable(props) {
           fullWidth
           label="Search"
           value={searchTerm}
-          onChange={(event) => setSearchTerm(event.target.value) } 
-          />
-           
+          onChange={(event) => setSearchTerm(event.target.value)}
+        />
+
       </div>
 
     </div><TableContainer component={Paper}>
@@ -74,7 +74,7 @@ function BasicTable(props) {
               else if (val.title.toLowerCase().startsWith(searchTerm.toLowerCase())) {
                 return true;
               }
-              
+
 
             }
 
@@ -93,7 +93,7 @@ function BasicTable(props) {
                   <TableCell align="right">{row.id}</TableCell>
                   <TableCell align="right">{row.title}</TableCell>
                   <TableCell align="right">{row.completed}</TableCell>
-
+                  
                 </TableRow>
               ))}
           </TableBody>

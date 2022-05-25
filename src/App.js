@@ -2,6 +2,8 @@ import react from 'react';
 
 import BasicTable from './BasicTable';
 import { useState, useEffect } from 'react';
+import { Button } from "react-bootstrap"
+import Pagination from './Pagination';
 
 
 
@@ -13,6 +15,8 @@ function App() {
 
 
   const [table, setTable] = useState([]);
+  const [currentpage, setCurrentpage] = useState(1);
+  const [postsperpage] = useState(10);
   useEffect(() => {
 
     fetch('https://jsonplaceholder.typicode.com/todos')
@@ -22,15 +26,22 @@ function App() {
 
 
 
+  const indexofLastPage = currentpage * postsperpage;
+  const indexofFirstpage = indexofLastPage - postsperpage;
+  const currentposts = table.slice(indexofFirstpage, indexofLastPage);
+  const paginate = (pageNumber) => setCurrentpage(pageNumber);
+
   return (
     <>
 
 
 
-      
-      <BasicTable data={table} />,
 
+      <BasicTable data={currentposts} />,
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
 
+      </div>
+      <Pagination postsperpage={postsperpage} totalposts={table.length} paginate={paginate} />
 
 
 
