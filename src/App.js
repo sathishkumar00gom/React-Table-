@@ -16,7 +16,7 @@ function App() {
 
   const [table, setTable] = useState([]);
   const [currentpage, setCurrentpage] = useState(1);
-  const [postsperpage] = useState(10);
+  const [postsperpage] = useState(30);
   useEffect(() => {
 
     fetch('https://jsonplaceholder.typicode.com/todos')
@@ -38,9 +38,6 @@ function App() {
 
 
       <BasicTable data={currentposts} />,
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
-
-      </div>
       <Pagination postsperpage={postsperpage} totalposts={table.length} paginate={paginate} />
 
 

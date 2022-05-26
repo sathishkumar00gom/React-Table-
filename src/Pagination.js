@@ -7,10 +7,12 @@ export default function Pagination({ postsperpage, totalposts, paginate }) {
         pageNumbers.push(i)
     }
     return (
-        <nav>
-            {pageNumbers.map((page) =>
-                (<li  ><a onClick={() => paginate(page)} href='#'>{page}</a></li>)
-            )}
-        </nav>
+        <>
+            {
+                pageNumbers.map((page) =>
+                    (<li  ><a onClick={() => paginate(page)} href='#'>{page}</a></li>)
+                )
+            }
+        </>
     )
 }
